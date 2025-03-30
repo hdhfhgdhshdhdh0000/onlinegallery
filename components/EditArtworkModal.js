@@ -65,9 +65,9 @@ const EditArtworkModal = ({ artwork, onClose, onSave }) => {
         };
 
         try {
-            const artworkRef = doc(db, 'artworks', artwork.id); // Firestore ID вместо `_id`
+            const artworkRef = doc(db, 'artworks', artwork.id); 
             await updateDoc(artworkRef, updatedArtwork);
-            onSave({ id: artwork.id, ...updatedArtwork }); // Передача обновленных данных
+            onSave({ id: artwork.id, ...updatedArtwork }); 
             router.reload();
         } catch (error) {
             console.error("Error updating artwork:", error);
@@ -80,7 +80,7 @@ const EditArtworkModal = ({ artwork, onClose, onSave }) => {
 
     const handleDeleteConfirm = async () => {
         try {
-            const artworkRef = doc(db, 'artworks', artwork.id); // Firestore ID вместо `_id`
+            const artworkRef = doc(db, 'artworks', artwork.id); 
             await deleteDoc(artworkRef);
             router.back();
         } catch (error) {
