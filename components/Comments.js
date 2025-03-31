@@ -16,7 +16,7 @@ const Comments = ({ artworkId, isLoggedIn, user }) => {
                 const querySnapshot = await getDocs(commentsQuery);
 
                 const fetchedComments = await Promise.all(
-                    querySnapshot.docs.map(async (document) => { // Переименовали `doc` в `document`
+                    querySnapshot.docs.map(async (document) => {
                         const commentData = { id: document.id, ...document.data() };
                         if (commentData.userId) {
                             const userRef = doc(db, 'users', commentData.userId);
